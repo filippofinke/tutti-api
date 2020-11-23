@@ -2,7 +2,7 @@
 
 ### Status
 
-```
+```js
 {
   getSubCategories: [Function],
   search: {
