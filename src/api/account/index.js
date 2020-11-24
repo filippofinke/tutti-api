@@ -9,16 +9,30 @@ exports.account = {
     params.append("password", password);
     params.append("remember", remember);
 
-    let request = utils.request("account/auth.json", {
-      headers: {
-        "content-type": "application/x-www-form-urlencoded",
+    let request = utils.request(
+      "account/auth.json",
+      {
+        headers: {
+          "content-type": "application/x-www-form-urlencoded",
+        },
+        body: params,
+        method: "POST",
       },
-      body: params,
-      method: "POST",
-    }, true);
+      true
+    );
     request.then((json) => {
       this._user = json;
     });
     return request;
+  },
+
+  getPaywall() {
+    if (this._user != null) {
+      return utils.request("account/myPaywall", {
+        headers: {
+          cookie: this._user.cookies,
+        },
+      });
+    }
   },
 };
