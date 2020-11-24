@@ -65,4 +65,14 @@ exports.account = {
       });
     }
   },
+
+  getMyItems(page = 1) {
+    if (this._user != null) {
+      return utils.request(`account/myitems.json?o=${page}`, {
+        headers: {
+          cookie: this._user.cookies,
+        },
+      });
+    }
+  },
 };
