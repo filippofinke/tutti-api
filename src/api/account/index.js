@@ -35,4 +35,14 @@ exports.account = {
       });
     }
   },
+
+  getSubscription() {
+    if (this._user != null) {
+      return utils.request("subscriptions/mySubscription", {
+        headers: {
+          cookie: this._user.cookies,
+        },
+      });
+    }
+  },
 };

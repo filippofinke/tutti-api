@@ -7,5 +7,6 @@ const tutti_api = require("./../src/index");
   console.log(await tutti_api.subscriptions.getAvailableBumps());
   console.log(await tutti_api.account.getPaywall());
   console.log(await tutti_api.subscriptions.getPlans());
+  console.log(await tutti_api.account.getSubscription());
 
 })();
