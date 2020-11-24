@@ -1,5 +1,5 @@
 const utils = require(__dirname + "/../../utils");
-
-exports.getSubCategories = () => {
+exports.config = {};
+exports.config.getSubCategories = () => {
   return utils.request("config/subcategories");
 };
