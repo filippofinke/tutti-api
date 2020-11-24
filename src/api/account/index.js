@@ -26,6 +26,10 @@ exports.account = {
     return request;
   },
 
+  logout() {
+    this._user = null;
+  },
+
   getPaywall() {
     if (this._user != null) {
       return utils.request("account/myPaywall", {
