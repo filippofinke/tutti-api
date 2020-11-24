@@ -45,4 +45,14 @@ exports.account = {
       });
     }
   },
+
+  getFavorites() {
+    if (this._user != null) {
+      return utils.request("favorites/", {
+        headers: {
+          cookie: this._user.cookies,
+        },
+      });
+    }
+  },
 };
