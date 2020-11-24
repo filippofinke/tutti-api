@@ -11,6 +11,6 @@ const tutti_api = require("./../src/index");
   console.log(await tutti_api.account.getSubscription());
   console.log(await tutti_api.account.getFavorites());
   console.log(await tutti_api.account.getProfile());
-  console.log(await tutti_api.account.getMyItems());
-  console.log(await tutti_api.account.getMyItems(1));
+  console.log(await tutti_api.account.getItems());
+  console.log(await tutti_api.account.getPendingItems());
 })();
