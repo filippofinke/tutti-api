@@ -135,18 +135,18 @@ const search = {
   },
 
   find(query = null) {
+    const params = new URLSearchParams();
+
     let path = `list.json?`;
-    for (let prop of Object.getOwnPropertyNames(search).filter((prop) =>
-      prop.startsWith("_")
+    for (let prop of Object.getOwnPropertyNames(search).filter(
+      (prop) => prop.startsWith("_") && search[prop] != null
     )) {
-      if (this[prop] != null) {
-        path += `&${prop.substr(1)}=${this[prop]}`;
-      }
+      params.append(prop.substr(1), this[prop]);
     }
     if (query) {
-      path += `&q=${encodeURI(query)}`;
+      params.append("query", query);
     }
-    return utils.request(path);
+    return utils.request(path + params);
   },
 };
 
