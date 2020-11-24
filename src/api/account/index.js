@@ -84,4 +84,22 @@ exports.account = {
       });
     }
   },
+  getItemsToModify(page = 1) {
+    if (this._user != null) {
+      return utils.request(`account/myitems/action.json?o=${page}`, {
+        headers: {
+          cookie: this._user.cookies,
+        },
+      });
+    }
+  },
+  getDisabledItems(page = 1) {
+    if (this._user != null) {
+      return utils.request(`account/myitems/hidden.json?o=${page}`, {
+        headers: {
+          cookie: this._user.cookies,
+        },
+      });
+    }
+  },
 };

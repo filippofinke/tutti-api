@@ -13,4 +13,7 @@ const tutti_api = require("./../src/index");
   console.log(await tutti_api.account.getProfile());
   console.log(await tutti_api.account.getItems());
   console.log(await tutti_api.account.getPendingItems());
+  console.log(await tutti_api.account.getItemsToModify());
+  console.log(await tutti_api.account.getDisabledItems());
+
 })();
