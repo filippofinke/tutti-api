@@ -2,7 +2,7 @@ const config = require("./../src/config");
 const tutti_api = require("./../src/index");
 
 (async () => {
-  console.log(
+  /*console.log(
     await tutti_api.account.login(config.env.EMAIL, config.env.PASSWORD, true)
   );
   console.log(await tutti_api.subscriptions.getAvailableBumps());
@@ -16,5 +16,5 @@ const tutti_api = require("./../src/index");
   console.log(await tutti_api.account.getItemsToModify());
   console.log(await tutti_api.account.getDisabledItems());
   console.log(await tutti_api.account.getArchivedItems());
-  console.log(await tutti_api.account.logout());
+  console.log(await tutti_api.account.logout());*/
 })();

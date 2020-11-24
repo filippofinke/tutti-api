@@ -26,8 +26,34 @@ exports.account = {
     return request;
   },
 
+  register(email, password) {
+    const params = new URLSearchParams();
+    params.append("email", email);
+    params.append("password", password);
+    params.append("password_confirm", password);
+    return utils.request("account.json", { method: "POST", body: params });
+  },
+
   logout() {
     this._user = null;
+  },
+
+  delete(password) {
+    if (this._user != null) {
+      const params = new URLSearchParams();
+      params.append("password", password);
+      params.append("delete_items", true);
+
+      let request = utils.request("account/delete.json", {
+        headers: {
+          cookie: this._user.cookies,
+        },
+        body: params,
+        method: "POST",
+      });
+      request.then(() => this.logout);
+      return request;
+    }
   },
 
   getPaywall() {
