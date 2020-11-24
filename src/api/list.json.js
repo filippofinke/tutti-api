@@ -135,25 +135,16 @@ const search = {
   },
 
   find(query = null) {
-    let path = `list.json?aggregated=${this._aggregated}&limit=${this._limit}&o=${this._page}&region=${this._region}&with_all_regions=${this._with_all_regions}`;
-    if (query) {
-      path += `&q=${encodeURI(query)}`;
-    }
-    for (let prop of [
-      "_st",
-      "_organic",
-      "_ps",
-      "_pe",
-      "_sp",
-      "_with_neighbouring_regions",
-      "_zipcode",
-      "_radius",
-      "_category",
-      "_subcategory",
-    ]) {
+    let path = `list.json?`;
+    for (let prop of Object.getOwnPropertyNames(search).filter((prop) =>
+      prop.startsWith("_")
+    )) {
       if (this[prop] != null) {
         path += `&${prop.substr(1)}=${this[prop]}`;
       }
+    }
+    if (query) {
+      path += `&q=${encodeURI(query)}`;
     }
     return utils.request(path);
   },
