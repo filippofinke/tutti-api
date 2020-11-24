@@ -1,17 +1,15 @@
+const config = require("./../src/config");
 const tutti_api = require("./../src/index");
 
 (async () => {
-  //console.log(tutti_api);
+  console.log(await tutti_api.account.login(config.env.EMAIL, config.env.PASSWORD, true));
 
-  /*let categories = await tutti_api.config.getSubCategories();
-  console.log(categories);*/
+  /*let subcategories = await tutti_api.config.getSubCategories();
+  console.log(subcategories);
 
-  /*let subcategories = await tutti_api.getSubCategories();
-  console.log(subcategories);*/
-
-  /*let json = await tutti_api.products
+  let json = await tutti_api.search
     .type(tutti_api.type.offer)
     .canton(tutti_api.canton.ticino)
-    .search();
+    .find();
   console.log(json);*/
 })();
