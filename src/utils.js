@@ -2,7 +2,7 @@ const config = require(__dirname + "/config");
 const fetch = require("node-fetch");
 const uuid4 = require("uuid4");
 
-exports.request = (path, options = {}) => {
+exports.request = (path, options = {}, return_cookies = false) => {
   return new Promise((resolve, reject) => {
     let defaultHeaders = {
       "x-tutti-hash": uuid4(),
@@ -14,8 +14,12 @@ exports.request = (path, options = {}) => {
     };
 
     fetch(`${config.env.BASE_URL}/${config.env.VERSION}/${path}`, options).then(
-      (response) => {
-        resolve(response.json());
+      async (response) => {
+        let json = await response.json();
+        if (return_cookies) {
+          json.cookies = response.headers.get("set-cookie");
+        }
+        resolve(json);
       }
     );
   });
