@@ -55,4 +55,14 @@ exports.account = {
       });
     }
   },
+
+  getProfile() {
+    if (this._user != null) {
+      return utils.request("account/profile.json", {
+        headers: {
+          cookie: this._user.cookies,
+        },
+      });
+    }
+  },
 };

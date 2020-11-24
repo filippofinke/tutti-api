@@ -9,5 +9,6 @@ const tutti_api = require("./../src/index");
   console.log(await tutti_api.subscriptions.getPlans());
   console.log(await tutti_api.account.getSubscription());
   console.log(await tutti_api.account.getFavorites());
+  console.log(await tutti_api.account.getProfile());
 
 })();
