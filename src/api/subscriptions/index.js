@@ -11,4 +11,8 @@ exports.subscriptions = {
       });
     }
   },
+
+  getPlans() {
+    return utils.request("subscriptions/plans/");
+  },
 };
