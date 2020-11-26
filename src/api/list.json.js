@@ -144,8 +144,9 @@ const search = {
       params.append(prop.substr(1), this[prop]);
     }
     if (query) {
-      params.append("query", query);
+      params.append("q", query);
     }
+    console.log(path + params);
     return utils.request(path + params);
   },
 };
