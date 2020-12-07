@@ -3,8 +3,10 @@ const tutti_api = require("./../src/index");
 
 (async () => {
 
+  console.log(tutti_api);
+  /*
   let pr = (await tutti_api.search.find("xbox | ps4")).items;
-  pr.forEach(p => console.log(p.subject));
+  pr.forEach(p => console.log(p.subject));*/
 
   /*console.log(
     await tutti_api.account.login(config.env.EMAIL, config.env.PASSWORD, true)

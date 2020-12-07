@@ -4,7 +4,23 @@
 
 ```js
 {
-  getSubCategories: [Function],
+  account: {
+    _user: null,
+    login: [Function: login],
+    register: [Function: register],
+    logout: [Function: logout],
+    delete: [Function: delete],
+    getPaywall: [Function: getPaywall],
+    getSubscription: [Function: getSubscription],
+    getFavorites: [Function: getFavorites],
+    getProfile: [Function: getProfile],
+    getItems: [Function: getItems],
+    getPendingItems: [Function: getPendingItems],
+    getItemsToModify: [Function: getItemsToModify],
+    getDisabledItems: [Function: getDisabledItems],
+    getArchivedItems: [Function: getArchivedItems]
+  },
+  config: { getSubCategories: [Function: getSubCategories] },
   search: {
     page: [Function: page],
     aggregated: [Function: aggregated],
@@ -56,6 +72,10 @@
     zug: 22,
     zurich: 23,
     liechtenstein: 24
+  },
+  subscriptions: {
+    getAvailableBumps: [Function: getAvailableBumps],
+    getPlans: [Function: getPlans]
   }
 }
 ```
