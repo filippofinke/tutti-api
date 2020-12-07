@@ -1,15 +1,11 @@
-const config = require("./../src/config");
 const tutti_api = require("./../src/index");
 
 (async () => {
-
-  console.log(tutti_api);
-  /*
   let pr = (await tutti_api.search.find("xbox | ps4")).items;
-  pr.forEach(p => console.log(p.subject));*/
+  pr.forEach((p) => console.log(p.subject));
 
-  /*console.log(
-    await tutti_api.account.login(config.env.EMAIL, config.env.PASSWORD, true)
+  console.log(
+    await tutti_api.account.login(process.env.EMAIL, process.env.PASSWORD, true)
   );
   console.log(await tutti_api.subscriptions.getAvailableBumps());
   console.log(await tutti_api.account.getPaywall());
@@ -22,5 +18,6 @@ const tutti_api = require("./../src/index");
   console.log(await tutti_api.account.getItemsToModify());
   console.log(await tutti_api.account.getDisabledItems());
   console.log(await tutti_api.account.getArchivedItems());
-  console.log(await tutti_api.account.logout());*/
+  console.log(await tutti_api.uploadImage(__dirname + "/test.jpg"));
+  console.log(await tutti_api.account.logout());
 })();
