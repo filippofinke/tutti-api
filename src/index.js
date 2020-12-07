@@ -1,5 +1,6 @@
 const { dir } = require("console");
 const fs = require("fs");
+require("dotenv").config();
 
 const scan = (directory) => {
   fs.readdirSync(directory).forEach((file) => {
@@ -17,3 +18,7 @@ const scan = (directory) => {
 };
 
 scan(__dirname + "/api");
+
+if (process.env.DEBUG === "true") {
+  console.log("🤖 tutti-api is in debug mode!");
+}
