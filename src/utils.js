@@ -20,11 +20,16 @@ exports.request = (path, options = {}, return_cookies = false) => {
     }
 
     fetch(url, options).then(async (response) => {
-      let json = await response.json();
-      if (return_cookies) {
-        json.cookies = response.headers.get("set-cookie");
+      try {
+        let json = await response.json();
+        if (return_cookies) {
+          json.cookies = response.headers.get("set-cookie");
+        }
+        resolve(json);
+      } catch (exception) {
+        let text = await response.text();
+        console.error(exception, text);
       }
-      resolve(json);
     });
   });
 };
