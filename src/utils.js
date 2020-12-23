@@ -33,6 +33,6 @@ exports.request = (path, options = {}, return_cookies = false) => {
         console.log("PARSE ERROR");
         console.log(text);
       }
-    });
+    }).catch(error => console.log("fetch-error", error));
   });
 };
