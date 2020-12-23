@@ -20,5 +20,5 @@ const scan = (directory) => {
 scan(__dirname + "/api");
 
 if (process.env.DEBUG === "true") {
-  console.log("🤖 tutti-api is in debug mode!");
+  console.log("🤖 tutti-api is in DEBUG mode!");
 }
