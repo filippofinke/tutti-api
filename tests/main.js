@@ -1,6 +1,7 @@
 const tutti_api = require("./../src/index");
 
 (async () => {
+
   let pr = (await tutti_api.search.find("xbox | ps4")).items;
   pr.forEach((p) => console.log(p.subject));
 

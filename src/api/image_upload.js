@@ -2,6 +2,14 @@ const utils = require(__dirname + "/../utils");
 const FormData = require("form-data");
 const fs = require("fs");
 
+/** @module image_upload */
+
+/**
+ * Upload an image.
+ * @method uploadImage
+ * @param {string} path - The image path.
+ * @return {Promise} The status of the upload.
+ */
 exports.uploadImage = (path) => {
   const form = new FormData();
 

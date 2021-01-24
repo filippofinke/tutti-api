@@ -1,5 +1,7 @@
 const utils = require(__dirname + "/../utils");
 
+/** @module search */
+
 const type = {
   all: null,
   offer: "s",
