@@ -25,10 +25,10 @@
     * [~getFavorites()](#module_account..getFavorites) ⇒ <code>Promise</code>
     * [~getProfile()](#module_account..getProfile) ⇒ <code>Promise</code>
     * [~getItems([page])](#module_account..getItems) ⇒ <code>Promise</code>
-    * [~getItems([page])](#module_account..getItems) ⇒ <code>Promise</code>
-    * [~getItems([page])](#module_account..getItems) ⇒ <code>Promise</code>
-    * [~getItems([page])](#module_account..getItems) ⇒ <code>Promise</code>
-    * [~getItems([page])](#module_account..getItems) ⇒ <code>Promise</code>
+    * [~getPendingItems([page])](#module_account..getPendingItems) ⇒ <code>Promise</code>
+    * [~getItemsToModify([page])](#module_account..getItemsToModify) ⇒ <code>Promise</code>
+    * [~getDisabledItems([page])](#module_account..getDisabledItems) ⇒ <code>Promise</code>
+    * [~getArchivedItems([page])](#module_account..getArchivedItems) ⇒ <code>Promise</code>
 
 <a name="module_account..login"></a>
 
@@ -115,9 +115,9 @@ Get the user posts.
 | --- | --- | --- | --- |
 | [page] | <code>number</code> | <code>1</code> | The page. |
 
-<a name="module_account..getItems"></a>
+<a name="module_account..getPendingItems"></a>
 
-### account~getItems([page]) ⇒ <code>Promise</code>
+### account~getPendingItems([page]) ⇒ <code>Promise</code>
 Get the user pending verification posts.
 
 **Kind**: inner method of [<code>account</code>](#module_account)  
@@ -127,9 +127,9 @@ Get the user pending verification posts.
 | --- | --- | --- | --- |
 | [page] | <code>number</code> | <code>1</code> | The page. |
 
-<a name="module_account..getItems"></a>
+<a name="module_account..getItemsToModify"></a>
 
-### account~getItems([page]) ⇒ <code>Promise</code>
+### account~getItemsToModify([page]) ⇒ <code>Promise</code>
 Get the user posts pending modification.
 
 **Kind**: inner method of [<code>account</code>](#module_account)  
@@ -139,9 +139,9 @@ Get the user posts pending modification.
 | --- | --- | --- | --- |
 | [page] | <code>number</code> | <code>1</code> | The page. |
 
-<a name="module_account..getItems"></a>
+<a name="module_account..getDisabledItems"></a>
 
-### account~getItems([page]) ⇒ <code>Promise</code>
+### account~getDisabledItems([page]) ⇒ <code>Promise</code>
 Get the user disabled posts.
 
 **Kind**: inner method of [<code>account</code>](#module_account)  
@@ -151,9 +151,9 @@ Get the user disabled posts.
 | --- | --- | --- | --- |
 | [page] | <code>number</code> | <code>1</code> | The page. |
 
-<a name="module_account..getItems"></a>
+<a name="module_account..getArchivedItems"></a>
 
-### account~getItems([page]) ⇒ <code>Promise</code>
+### account~getArchivedItems([page]) ⇒ <code>Promise</code>
 Get the user archived posts.
 
 **Kind**: inner method of [<code>account</code>](#module_account)  

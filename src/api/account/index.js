@@ -160,7 +160,7 @@ exports.account = {
 
   /**
    * Get the user pending verification posts.
-   * @method getItems
+   * @method getPendingItems
    * @param {number} [page=1] - The page.
    * @return {Promise} The posts.
    */
@@ -175,7 +175,7 @@ exports.account = {
   },
   /**
    * Get the user posts pending modification.
-   * @method getItems
+   * @method getItemsToModify
    * @param {number} [page=1] - The page.
    * @return {Promise} The posts.
    */
@@ -190,7 +190,7 @@ exports.account = {
   },
   /**
    * Get the user disabled posts.
-   * @method getItems
+   * @method getDisabledItems
    * @param {number} [page=1] - The page.
    * @return {Promise} The posts.
    */
@@ -205,7 +205,7 @@ exports.account = {
   },
   /**
    * Get the user archived posts.
-   * @method getItems
+   * @method getArchivedItems
    * @param {number} [page=1] - The page.
    * @return {Promise} The posts.
    */
