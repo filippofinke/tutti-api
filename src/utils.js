@@ -19,20 +19,27 @@ exports.request = (path, options = {}, return_cookies = false) => {
       console.log(options);
     }
 
-    fetch(url, options).then(async (response) => {
-      
-      let text = await response.text();
-      
-      try{
-        let json = JSON.parse(text);
-        if (return_cookies) {
-          json.cookies = response.headers.get("set-cookie");
+    fetch(url, options)
+      .then(async (response) => {
+        if (response.status === 503) {
+          console.log("CloudFlare WAF");
+          return reject("Cloudflare WAF");
         }
-        resolve(json);
-      } catch(e) {
-        console.log("PARSE ERROR");
-        console.log(text);
-      }
-    }).catch(error => console.log("fetch-error", error));
+
+        let text = await response.text();
+
+        try {
+          let json = JSON.parse(text);
+          if (return_cookies) {
+            json.cookies = response.headers.get("set-cookie");
+          }
+          return resolve(json);
+        } catch (e) {
+          console.log("PARSE ERROR");
+          console.log(text);
+          return reject("Invalid json response");
+        }
+      })
+      .catch((error) => console.log("fetch-error", error));
   });
 };
