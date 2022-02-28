@@ -54,7 +54,10 @@ module.exports = {
       );
 
       stream.pipe(ndjson.parse()).on("data", (data) => {
-        handler(data.data);
+        handler({
+          conversationId,
+          messages: data.data,
+        });
       });
     }
   },
