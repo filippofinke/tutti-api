@@ -1,6 +1,8 @@
 const tutti_api = require("./../src/index");
 
 (async () => {
+  console.log(await tutti_api.account.getPublicProfile("709351413517428665"));
+
   console.log(await tutti_api.account.login(process.env.EMAIL, process.env.PASSWORD, true));
   let pr = (await tutti_api.search.find("xbox | ps4")).items;
   pr.forEach((p) => console.log(p.subject));
@@ -18,7 +20,7 @@ const tutti_api = require("./../src/index");
   console.log(await tutti_api.account.getArchivedItems());
   console.log(await tutti_api.uploadImage(__dirname + "/test.jpg"));
 
-  const messageHandler = (messages) => {
+  const messageHandler = ({ convId, messages }) => {
     for (let messageId in messages) {
       let {
         id,
@@ -33,7 +35,6 @@ const tutti_api = require("./../src/index");
   };
 
   const conversationHandler = (conversations) => {
-
     for (let convId in conversations) {
       let {
         id,

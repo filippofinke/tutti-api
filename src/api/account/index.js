@@ -142,6 +142,12 @@ module.exports = {
     }
   },
 
+  getPublicProfile(userId) {
+    return utils.request("account/public_profile.json?id=" + userId, {
+      method: "GET",
+    });
+  },
+
   /**
    * Get the user posts.
    * @method getItems
