@@ -29,7 +29,7 @@ const cfBypass = async () => {
   );
 };
 
-exports.request = (path, options = {}, return_cookies = false) => {
+exports.request = (path, options = {}, return_cookies = false, is_stream = false) => {
   return new Promise((resolve, reject) => {
     let defaultHeaders = {
       "x-tutti-hash": uuid4(),
@@ -51,7 +51,6 @@ exports.request = (path, options = {}, return_cookies = false) => {
 
     if (process.env.DEBUG === "true") {
       console.log(url);
-      console.log(options);
     }
 
     fetch(url, options)
@@ -62,18 +61,23 @@ exports.request = (path, options = {}, return_cookies = false) => {
           return resolve(this.request(path, options, return_cookies));
         }
 
-        let text = await response.text();
+        if (is_stream) {
+          let body = await response.body;
+          return resolve(body);
+        } else {
+          let text = await response.text();
 
-        try {
-          let json = JSON.parse(text);
-          if (return_cookies) {
-            json.cookies = response.headers.get("set-cookie");
+          try {
+            let json = JSON.parse(text);
+            if (return_cookies) {
+              json.cookies = response.headers.get("set-cookie");
+            }
+            return resolve(json);
+          } catch (e) {
+            console.log("PARSE ERROR");
+            console.log(text);
+            return reject("Invalid json response");
           }
-          return resolve(json);
-        } catch (e) {
-          console.log("PARSE ERROR");
-          console.log(text);
-          return reject("Invalid json response");
         }
       })
       .catch((error) => console.log("fetch-error", error));
