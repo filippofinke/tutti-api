@@ -1,6 +1,6 @@
 const utils = require(__dirname + "/../../utils");
 /** @module config */
-exports.config = {
+module.exports = {
   /**
    * Get the available categories.
    * @method getSubCategories

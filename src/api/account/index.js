@@ -1,7 +1,7 @@
 const utils = require(__dirname + "/../../utils");
 
 /** @module account */
-exports.account = {
+module.exports = {
   _user: null,
 
   /**

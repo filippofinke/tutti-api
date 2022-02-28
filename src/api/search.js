@@ -168,7 +168,9 @@ Object.getOwnPropertyNames(search).forEach((prop) => {
 });
 Object.defineProperties(search, props);
 
-exports.search = search;
-exports.type = type;
-exports.order_by = order_by;
-exports.canton = canton;
+module.exports = {
+  search,
+  type,
+  order_by,
+  canton,
+}

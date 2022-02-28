@@ -10,7 +10,7 @@ const fs = require("fs");
  * @param {string} path - The image path.
  * @return {Promise} The status of the upload.
  */
-exports.uploadImage = (path) => {
+module.exports = (path) => {
   const form = new FormData();
 
   const stats = fs.statSync(path);

@@ -1,10 +1,10 @@
 const ndjson = require("ndjson");
 const uuid4 = require("uuid4");
 const utils = require(__dirname + "/../../utils");
-const account = require(__dirname + "/../account/index").account;
+const account = require(__dirname + "/../account/index");
 
 /** @module account */
-exports.messaging = {
+module.exports = {
   initChat(itemId, text, email, name) {
     if (account._user != null) {
       const params = new URLSearchParams();

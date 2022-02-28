@@ -1,9 +1,9 @@
 const utils = require(__dirname + "/../../utils");
-const account = require(__dirname + "/../account/index").account;
+const account = require(__dirname + "/../account/index");
 
 /** @module subscriptions */
 
-exports.subscriptions = {
+module.exports = {
   /**
    * Get the available bumps.
    * @method getAvailableBumps
