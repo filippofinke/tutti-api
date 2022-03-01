@@ -44,7 +44,7 @@ const canton = {
 };
 
 const search = {
-  _page: 1,
+  _o: null,
   _aggregated: 1,
   _limit: 30,
   _region: "",
@@ -61,7 +61,7 @@ const search = {
   _subcategory: null,
 
   page(page) {
-    this._page = page;
+    this._o = page;
     return this;
   },
 
@@ -140,9 +140,7 @@ const search = {
     const params = new URLSearchParams();
 
     let path = `list.json?`;
-    for (let prop of Object.getOwnPropertyNames(search).filter(
-      (prop) => prop.startsWith("_") && search[prop] != null
-    )) {
+    for (let prop of Object.getOwnPropertyNames(search).filter((prop) => prop.startsWith("_") && search[prop] != null)) {
       params.append(prop.substr(1), this[prop]);
     }
     if (query) {
@@ -173,4 +171,4 @@ module.exports = {
   type,
   order_by,
   canton,
-}
+};

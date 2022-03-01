@@ -4,7 +4,7 @@ const tutti_api = require("./../src/index");
   console.log(await tutti_api.account.getPublicProfile("709351413517428665"));
 
   console.log(await tutti_api.account.login(process.env.EMAIL, process.env.PASSWORD, true));
-  let pr = (await tutti_api.search.find("xbox | ps4")).items;
+  let pr = (await tutti_api.search.page(1).find("xbox | ps4")).items;
   pr.forEach((p) => console.log(p.subject));
 
   console.log(await tutti_api.subscriptions.getAvailableBumps());
