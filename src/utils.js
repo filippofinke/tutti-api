@@ -9,6 +9,9 @@ const agent =
   "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Mobile Safari/537.36 Edg/88.0.705.50";
 let cookie = "";
 
+const BASE_URL = `https://www.tutti.ch/api`;
+const VERSION = `v10`;
+
 const cfBypass = async () => {
   let url = "https://www.tutti.ch/it";
 
@@ -47,7 +50,7 @@ exports.request = (path, options = {}, return_cookies = false, is_stream = false
       options.headers["cookie"] = cookie;
     }
 
-    let url = `${process.env.BASE_URL}/${process.env.VERSION}/${path}`;
+    let url = `${BASE_URL}/${VERSION}/${path}`;
 
     if (process.env.DEBUG === "true") {
       console.log(url);
