@@ -1,5 +1,7 @@
 const ndjson = require("ndjson");
 const uuid4 = require("uuid4");
+const FormData = require("form-data");
+const fs = require("fs");
 const utils = require(__dirname + "/../../utils");
 const account = require(__dirname + "/../account/index");
 
@@ -19,6 +21,27 @@ module.exports = {
           cookie: account._user.cookies,
         },
         body: params,
+      });
+    }
+  },
+
+  sendImage(conversationId, image) {
+    if (account._user != null) {
+      const form = new FormData();
+
+      const stats = fs.statSync(image);
+      const fileSizeInBytes = stats.size;
+      const stream = fs.createReadStream(image);
+      form.append("image", stream, { knownLength: fileSizeInBytes });
+      form.append("id", uuid4());
+
+      return utils.request(`messaging/conversations/${conversationId}/sendImage`, {
+        headers: {
+          cookie: account._user.cookies,
+          ...form.getHeaders(),
+        },
+        method: "POST",
+        body: form,
       });
     }
   },
