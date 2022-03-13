@@ -36,6 +36,7 @@ exports.request = (path, options = {}, return_cookies = false, is_stream = false
   return new Promise((resolve, reject) => {
     let defaultHeaders = {
       "x-tutti-hash": uuid4(),
+      "x-tutti-source": "web latest-staging",
       "user-agent": agent,
     };
 
