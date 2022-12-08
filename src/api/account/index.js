@@ -17,6 +17,7 @@ module.exports = {
     params.append("email", email);
     params.append("password", password);
     params.append("remember", remember);
+    params.append("seonSession", "undefined");
 
     let request = utils.request(
       "account/auth.json",
