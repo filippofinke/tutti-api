@@ -19,7 +19,8 @@ const cfBypass = async () => {
   const page = await browser.newPage();
   await page.setUserAgent(agent);
   await page.goto(url);
-  await page.waitForTimeout(25000);
+  // wait for networkidle0
+  await page.waitForNavigation({ waitUntil: "networkidle0" });
   const cookies = await page.cookies();
   await browser.close();
 
@@ -32,7 +33,12 @@ const cfBypass = async () => {
   );
 };
 
-exports.request = (path, options = {}, return_cookies = false, is_stream = false) => {
+exports.request = (
+  path,
+  options = {},
+  return_cookies = false,
+  is_stream = false
+) => {
   return new Promise((resolve, reject) => {
     let defaultHeaders = {
       "x-tutti-hash": uuid4(),
@@ -59,7 +65,7 @@ exports.request = (path, options = {}, return_cookies = false, is_stream = false
 
     fetch(url, options)
       .then(async (response) => {
-        if (response.status === 503) {
+        if (response.status === 503 || response.status === 429) {
           console.log("Please wait, bypassing CloudFlare WAF");
           cookie = await cfBypass();
           return resolve(this.request(path, options, return_cookies));
