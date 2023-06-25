@@ -6,16 +6,21 @@ const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 puppeteer.use(StealthPlugin());
 
 const agent =
-  "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Mobile Safari/537.36 Edg/88.0.705.50";
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.58";
 let cookie = "";
 
 const BASE_URL = `https://www.tutti.ch/api`;
 const VERSION = `v10`;
+const SOURCE = `web r1.0-2023-06-23-09-30`;
+const IDENTIFIER = `web/1.0.0+env-live.git-1e9d7c4`;
 
 const cfBypass = async () => {
   let url = "https://www.tutti.ch/it";
 
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ["--no-sandbox"],
+  });
   const page = await browser.newPage();
   await page.setUserAgent(agent);
   await page.goto(url);
@@ -42,7 +47,8 @@ exports.request = (
   return new Promise((resolve, reject) => {
     let defaultHeaders = {
       "x-tutti-hash": uuid4(),
-      "x-tutti-source": "web latest-staging",
+      "x-tutti-source": SOURCE,
+      "x-tutti-client-identifier": IDENTIFIER,
       "user-agent": agent,
     };
 
