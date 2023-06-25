@@ -3,12 +3,25 @@
   "version": "1.0.0",
   "description": "",
   "main": "./src/index.js",
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github"
+    ]
+  },
   "scripts": {
     "test": "node ./tests/main.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@semantic-release/commit-analyzer": "^10.0.1",
+    "@semantic-release/github": "^9.0.3",
+    "@semantic-release/release-notes-generator": "^11.0.3",
     "dotenv": "^8.2.0",
     "form-data": "^3.0.0",
     "ndjson": "^2.0.0",
@@ -17,5 +30,8 @@
     "puppeteer-extra": "^3.1.16",
     "puppeteer-extra-plugin-stealth": "^2.6.7",
     "uuid4": "^2.0.2"
+  },
+  "devDependencies": {
+    "semantic-release": "^21.0.5"
   }
 }
