@@ -6,26 +6,30 @@ const StealthPlugin = require("puppeteer-extra-plugin-stealth");
 puppeteer.use(StealthPlugin());
 
 const agent =
-  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36 Edg/114.0.1823.58";
+  "Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36 Edg/126.0.0.0";
 let cookie = "";
 
 const BASE_URL = `https://www.tutti.ch/api`;
 const VERSION = `v10`;
-const SOURCE = `web r1.0-2023-06-23-09-30`;
-const IDENTIFIER = `web/1.0.0+env-live.git-1e9d7c4`;
+const SOURCE = `web r1.0-2024-07-12-12-17`;
+const IDENTIFIER = `web/1.0.0+env-live.git-8e2baf71`;
 
 const cfBypass = async () => {
-  let url = "https://www.tutti.ch/it";
+  let url = "https://www.tutti.ch/";
 
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: false,
     args: ["--no-sandbox"],
   });
   const page = await browser.newPage();
   await page.setUserAgent(agent);
   await page.goto(url);
   // wait for networkidle0
-  await page.waitForNavigation({ waitUntil: "networkidle0" });
+  try {
+    await page.waitForNavigation({ waitUntil: "networkidle0" });
+  } catch (e) {
+    console.log("Error waiting for navigation");
+  }
   const cookies = await page.cookies();
   await browser.close();
 
