@@ -18,7 +18,7 @@ const cfBypass = async () => {
   let url = "https://www.tutti.ch/";
 
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     args: ["--no-sandbox"],
   });
   const page = await browser.newPage();
