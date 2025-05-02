@@ -3,7 +3,7 @@
 > ⚠️ **This package is currently outdated.**  
 > tutti.ch has completely changed their internal API structure, so this wrapper no longer works with the current platform.  
 > I may update it in the future when I have time.  
-> If you need something related to tutti.ch, I’m available for consultation.
+> If you need something related to tutti.ch, ***I’m available for consultation***.
 
 > tutti-api is a wrapper around the private API of tutti.ch
 
