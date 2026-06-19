@@ -1,6 +1,6 @@
 {
   "name": "tutti-api",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Unofficial TypeScript client for the (reverse-engineered) tutti.ch API — search, listings, seller profiles, categories, suggestions, messaging, and Auth0 login.",
   "type": "module",
   "main": "./dist/index.cjs",

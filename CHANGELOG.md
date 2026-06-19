@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/filippofinke/tutti-api/compare/tutti-api-v2.0.0...tutti-api-v2.1.0) (2026-06-19)
+
+
+### Features
+
+* add radius parameter and fix locality type in search builder and constraints ([0e3740d](https://github.com/filippofinke/tutti-api/commit/0e3740dc1394b9d5d04dcef2f903ba05b0319bb5))
+
 ## [2.0.0](https://github.com/filippofinke/tutti-api/compare/tutti-api-v0.1.0...tutti-api-v2.0.0) (2026-06-19)
 
 
