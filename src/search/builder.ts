@@ -34,6 +34,7 @@ export class SearchBuilder {
 
   private _prices: PriceConstraint[] = [];
   private _localities: Locality[] = [];
+  private _radius?: number;
   private _intervals: IntervalConstraint[] = [];
   private _strings: StringConstraint[] = [];
 
@@ -72,6 +73,12 @@ export class SearchBuilder {
   /** Add a locality (from `client.localities.search()`). Repeatable. */
   location(locality: Locality): this {
     this._localities.push(locality);
+    return this;
+  }
+
+  /** Search radius around the selected localities (as the app sends it, in km). */
+  radius(km: number): this {
+    this._radius = km;
     return this;
   }
 
@@ -121,7 +128,14 @@ export class SearchBuilder {
     return {
       intervals: this._intervals,
       locations: this._localities.length
-        ? [{ key: "location", localities: this._localities }]
+        ? [
+            {
+              key: "location",
+              // Wire shape is a list of LocalityID strings, not full objects.
+              localities: this._localities.map((l) => l.localityID),
+              ...(this._radius != null ? { radius: this._radius } : {}),
+            },
+          ]
         : [],
       prices: this._prices,
       strings: this._strings,

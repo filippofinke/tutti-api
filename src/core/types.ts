@@ -18,17 +18,20 @@ export interface Locality {
 }
 
 // ---- Search filter constraints (GraphQL input: ListingSearchConstraints) ----
-// NOTE: element shapes below are inferred — captured requests only ever sent
-// empty arrays. Verify against live traffic before relying on filtered search.
+// NOTE: element shapes verified against the app's Apollo input adapters
+// (ConstraintsMapperKt / ListingLocationConstraint_InputAdapter).
 export interface PriceConstraint {
   key: "price";
   freeOnly?: boolean;
   min?: number;
   max?: number;
 }
+// ListingLocationConstraint: `localities` is a list of LocalityID strings
+// (NOT full Locality objects), with an optional radius.
 export interface LocationConstraint {
   key: "location";
-  localities: Locality[];
+  localities: string[];
+  radius?: number;
 }
 export interface IntervalConstraint {
   key: string;
