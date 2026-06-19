@@ -1,5 +1,12 @@
-node_modules
-build
-npm-debug.log
-.env
+node_modules/
+dist/
+docs/
+*.log
 .DS_Store
+
+# captcha images saved at runtime by ManualCaptchaProvider
+tutti-captcha.*
+captcha-*.svg
+
+# stored sessions (contain auth tokens)
+.tutti-sessions/

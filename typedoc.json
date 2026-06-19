@@ -1,0 +1,14 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["src/index.ts"],
+  "out": "docs",
+  "name": "tutti-api",
+  "readme": "README.md",
+  "includeVersion": true,
+  "excludeInternal": true,
+  "categorizeByGroup": true,
+  "intentionallyNotExported": ["RequestInit"],
+  "navigationLinks": {
+    "GitHub": "https://github.com/filippofinke/tutti-api"
+  }
+}
