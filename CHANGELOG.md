@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.1](https://github.com/filippofinke/tutti-api/compare/tutti-api-v2.1.0...tutti-api-v2.1.1) (2026-06-30)
+
+
+### Bug Fixes
+
+* always send required freeOnly on price constraint ([e5cd6c5](https://github.com/filippofinke/tutti-api/commit/e5cd6c5fa70d37f1859602b9fb0105581292dcc7))
+* always send required freeOnly on price constraint ([9a83c24](https://github.com/filippofinke/tutti-api/commit/9a83c245b71179f3faa32b6325aca4d3e77d132f))
+
 ## [2.1.0](https://github.com/filippofinke/tutti-api/compare/tutti-api-v2.0.0...tutti-api-v2.1.0) (2026-06-19)
 
 
