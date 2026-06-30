@@ -158,7 +158,7 @@ npm run docs        # generate API docs (TypeDoc) into docs/
 
 ## Caveats
 
-- **Filter element shapes are inferred** — captured requests only ever sent empty constraint arrays. Keyword search is unaffected; verify `price`/`location`/`interval`/`select` payloads against live traffic.
+- **Most filter element shapes are inferred** — captured requests only ever sent empty constraint arrays. Keyword search is unaffected; verify `location`/`interval`/`select` payloads against live traffic. The `price` shape is now verified against the app's `ListingPriceConstraint` input adapter: `freeOnly` is a **required** non-null Boolean (defaulted to `false` by `.price()`), `min`/`max` are optional.
 - **Login captcha is interactive by default** — the minted session token is long-lived (~1yr), so you log in rarely; `useToken()` skips it. `auth.tutti.ch` is behind Cloudflare.
 - **Default headers** mirror a captured Android client; override via `new TuttiClient({ app: { … } })`.
 

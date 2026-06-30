@@ -22,7 +22,10 @@ export interface Locality {
 // (ConstraintsMapperKt / ListingLocationConstraint_InputAdapter).
 export interface PriceConstraint {
   key: "price";
-  freeOnly?: boolean;
+  // Required non-null Boolean on the wire (ListingPriceConstraint.freeOnly: Z,
+  // checkNotNull in the Kotlin input type). Must always be sent — omitting it
+  // makes the server reject the whole request with GRAPHQL_VALIDATION_FAILED.
+  freeOnly: boolean;
   min?: number;
   max?: number;
 }
