@@ -60,7 +60,9 @@ export class SearchBuilder {
         `price.min (${p.min}) > price.max (${p.max})`,
       );
     }
-    this._prices = [{ key: "price", ...p }];
+    // freeOnly is a required non-null field on the wire; default it so a
+    // price-range search doesn't 422 with a missing-field validation error.
+    this._prices = [{ key: "price", freeOnly: false, ...p }];
     return this;
   }
 
