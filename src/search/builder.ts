@@ -95,13 +95,13 @@ export class SearchBuilder {
 
   /** Single-select filter (e.g. select("companyAd", "private")). */
   select(name: string, value: string): this {
-    this._strings.push({ key: name, values: [value] });
+    this._strings.push({ key: name, value: [value] });
     return this;
   }
 
   /** Multi-select filter (e.g. multiSelect("language", ["de", "fr"])). */
-  multiSelect(name: string, values: string[]): this {
-    this._strings.push({ key: name, values });
+  multiSelect(name: string, value: string[]): this {
+    this._strings.push({ key: name, value });
     return this;
   }
 

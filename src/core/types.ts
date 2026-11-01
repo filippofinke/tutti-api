@@ -43,7 +43,7 @@ export interface IntervalConstraint {
 }
 export interface StringConstraint {
   key: string;
-  values: string[];
+  value: string[];
 }
 export interface Constraints {
   intervals: IntervalConstraint[];
