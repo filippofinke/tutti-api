@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.2](https://github.com/filippofinke/tutti-api/compare/tutti-api-v2.1.1...tutti-api-v2.1.2) (2026-11-01)
+
+
+### Bug Fixes
+
+* send string constraints as `value` instead of `values` ([a98909e](https://github.com/filippofinke/tutti-api/commit/a98909e5fa1a44b1315483be9ef794b7c619d85d))
+* send string constraints as `value` instead of `values` ([5c65a40](https://github.com/filippofinke/tutti-api/commit/5c65a40bdbcff05da59b9606f9949b11f8beb754))
+
 ## [2.1.1](https://github.com/filippofinke/tutti-api/compare/tutti-api-v2.1.0...tutti-api-v2.1.1) (2026-06-30)
 
 
